@@ -35,7 +35,7 @@ android {
 // called every time gradle gets executed, takes the native dependencies of
 // the natives configuration, and extracts them to the proper libs/ folders
 // so they get packed with the APK.
-task copyAndroidNatives() { 
+task copyAndroidNatives() {
 
     file("libs/armeabi/").mkdirs();
     file("libs/armeabi-v7a/").mkdirs();
@@ -140,5 +140,10 @@ idea {
 
 
 dependencies {
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
     implementation 'com.android.support.constraint:constraint-layout:+'
+    implementation 'com.jjoe64:graphview:4.2.2'
+    implementation 'com.android.support:design:27.1.1'
 }

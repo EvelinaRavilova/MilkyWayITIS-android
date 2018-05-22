@@ -2,5 +2,6 @@
 <resources>
 
     <string name="app_name">FlappyBirdForMW</string>
+    <string name="title_activity_playground">Playground</string>
 
 </resources>

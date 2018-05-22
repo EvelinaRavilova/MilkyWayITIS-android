@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -27,8 +26,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AndroidLauncher"></activity>
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".AndroidLauncher" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".PlayGround"></activity>
     </application>
 
 </manifest>
