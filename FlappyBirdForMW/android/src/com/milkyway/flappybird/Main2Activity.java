@@ -1,13 +1,17 @@
 package com.milkyway.flappybird;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.milkyway.flappybird.net.API;
+
 public class Main2Activity extends AppCompatActivity {
 
+    API api = new API();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +26,7 @@ public class Main2Activity extends AppCompatActivity {
 
             }
         });
+        new getTopRecord().execute();
         Button playground = findViewById(R.id.playground);
         playground.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,4 +36,19 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
     }
+    class getTopRecord extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            api.getTopRecord();
+            publishProgress(voids);
+            return voids[0];
+        }
+
+        @Override
+        protected void onProgressUpdate(Void... values) {
+            super.onProgressUpdate(values);
+        }
+    }
 }
+
+

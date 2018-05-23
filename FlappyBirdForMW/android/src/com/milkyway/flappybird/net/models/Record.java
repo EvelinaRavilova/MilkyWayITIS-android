@@ -10,6 +10,7 @@ public class Record {
 
     @SerializedName("game_chat")
     @Expose
+
     private Integer game_chat;
 
 
@@ -20,4 +21,11 @@ public class Record {
     @SerializedName("username")
     @Expose
     private String username;
+
+    public Record(String date, Integer game_chat, Integer score, String username) {
+        this.date = date;
+        this.game_chat = game_chat;
+        this.score = score;
+        this.username = username;
+    }
 }
