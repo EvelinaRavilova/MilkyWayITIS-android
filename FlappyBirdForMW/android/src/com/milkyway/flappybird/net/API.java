@@ -2,12 +2,15 @@ package com.milkyway.flappybird.net;
 
 import android.util.Log;
 
+import com.milkyway.flappybird.net.models.Position;
 import com.milkyway.flappybird.net.models.Record;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -25,18 +28,67 @@ public class API {
         service = retrofit.create(ServerApiInterface.class);
     }
 
-    public List<Record> getTopRecord() {
+    public List<Record> getRecords() {
         final List<Record> records = new ArrayList<>();
         try {
             Response<List<Record>> response = service
-                    .getTopRecords(1, 3)
+                    .getRecords(1, 3, "username")
                     .execute();
+           // while (response.body() == null) {}
             records.addAll(response.body());
             Log.d("Response", records.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
+        // while (!(records.size() > 0)) {}
         return records;
+    }
+
+    public void newRecord(int gameType, int score) {
+        final Record record = new Record("2018-05-26T21:21:00Z",gameType,
+                score, "username");
+        String conType = "application/json";
+        service.newRecord(conType, record).enqueue(new Callback<Record>() {
+            @Override
+            public void onResponse(Call<Record> call, Response<Record> response) {
+                Log.d("sm", "Message sent");
+            }
+
+            @Override
+            public void onFailure(Call<Record> call, Throwable t) {
+                // ToDo: реализовать обработчик исключения
+            }
+        });
+    }
+
+    public Record getTop(String filterBy) {
+        Record record = new Record();
+        try {
+            Response<Record> response = service
+                    .getTopRecord(1,"username", filterBy)
+                    .execute();
+            //while (response.body() == null) {}
+            record = new Record(response.body());
+            Log.d("Response", record.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return record;
+    }
+
+    public Position getTotalPosition(int gameType) {
+        Position position = new Position();
+        try {
+            Response<Position> response = service
+                    .getTotalPosition("username", gameType)
+                    .execute();
+            //while (response.body() == null) {}
+            position = response.body();
+            Log.d("Response", position.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return position;
     }
 
 }

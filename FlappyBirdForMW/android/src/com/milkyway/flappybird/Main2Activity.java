@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import com.milkyway.flappybird.net.API;
+import com.milkyway.flappybird.net.models.Record;
+
+import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -36,12 +40,14 @@ public class Main2Activity extends AppCompatActivity {
             }
         });
     }
-    class getTopRecord extends AsyncTask<Void, Void, Void> {
+    class getTopRecord extends AsyncTask<Void, Void, List<Record>> {
         @Override
-        protected Void doInBackground(Void... voids) {
-            api.getTopRecord();
+        protected List<Record> doInBackground(Void... voids) {
+            Log.d("Deb", "HERE");
+            List<Record> recordList = api.getRecords();
+            Log.d("Deb", "HERE");
             publishProgress(voids);
-            return voids[0];
+            return recordList;
         }
 
         @Override

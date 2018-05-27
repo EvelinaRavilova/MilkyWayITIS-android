@@ -6,26 +6,46 @@ import com.google.gson.annotations.SerializedName;
 public class Record {
     @SerializedName("date")
     @Expose
-    private String date;
+    public String date;
 
-    @SerializedName("game_chat")
+    @SerializedName("game_type")
     @Expose
-
-    private Integer game_chat;
+    public Integer game_type;
 
 
     @SerializedName("score")
     @Expose
-    private Integer score;
+    public Integer score;
 
     @SerializedName("username")
     @Expose
-    private String username;
+    public String username;
 
-    public Record(String date, Integer game_chat, Integer score, String username) {
+    public Record(String date, Integer game_type, Integer score, String username) {
         this.date = date;
-        this.game_chat = game_chat;
+        this.game_type = game_type;
         this.score = score;
         this.username = username;
     }
+    
+    public Record(Record record) {
+        this.date = record.date;
+        this.game_type = record.game_type;
+        this.score = record.score;
+        this.username = record.username;
+    }
+    public Record() {
+
+    }
+
+    @Override
+    public String toString() {
+        return "Record{" +
+                "date='" + date + '\'' +
+                ", game_type=" + game_type +
+                ", score=" + score +
+                ", username='" + username + '\'' +
+                '}';
+    }
+    
 }
