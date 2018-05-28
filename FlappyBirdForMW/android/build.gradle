@@ -19,7 +19,7 @@ android {
     }
     defaultConfig {
         applicationId "com.milkyway.flappybird"
-        minSdkVersion 14
+        minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -35,7 +35,7 @@ android {
 // called every time gradle gets executed, takes the native dependencies of
 // the natives configuration, and extracts them to the proper libs/ folders
 // so they get packed with the APK.
-task copyAndroidNatives() { 
+task copyAndroidNatives() {
 
     file("libs/armeabi/").mkdirs();
     file("libs/armeabi-v7a/").mkdirs();
@@ -141,4 +141,5 @@ idea {
 
 dependencies {
     implementation 'com.android.support.constraint:constraint-layout:+'
+    implementation 'com.android.support:design:27.1.1'
 }
