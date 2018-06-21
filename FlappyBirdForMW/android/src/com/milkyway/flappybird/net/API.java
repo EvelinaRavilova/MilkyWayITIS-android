@@ -16,6 +16,11 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class API {
+    /*
+        Весь API работает только для username
+        (hardcode)
+     */
+
 
     Retrofit retrofit;
     ServerApiInterface service;
@@ -28,13 +33,12 @@ public class API {
         service = retrofit.create(ServerApiInterface.class);
     }
 
-    public List<Record> getRecords() {
+    public List<Record> getRecords(int gameType, int amount) {
         final List<Record> records = new ArrayList<>();
         try {
             Response<List<Record>> response = service
-                    .getRecords(1, 3, "username")
+                    .getRecords(gameType, amount, "username")
                     .execute();
-           // while (response.body() == null) {}
             records.addAll(response.body());
             Log.d("Response", records.toString());
         } catch (IOException e) {
@@ -61,11 +65,11 @@ public class API {
         });
     }
 
-    public Record getTop(String filterBy) {
+    public Record getTop(int gameType, String filterBy) {
         Record record = new Record();
         try {
             Response<Record> response = service
-                    .getTopRecord(1,"username", filterBy)
+                    .getTopRecord(gameType,"username", filterBy)
                     .execute();
             //while (response.body() == null) {}
             record = new Record(response.body());

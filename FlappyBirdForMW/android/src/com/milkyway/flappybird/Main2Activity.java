@@ -35,8 +35,6 @@ public class Main2Activity extends AppCompatActivity {
         playground.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Main2Activity.this, PlayGround.class);
-                startActivity(i);
             }
         });
     }
