@@ -1,4 +1,4 @@
-package com.milkyway.flappybird;
+package com.milkyway.flappybird.games;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.badlogic.gdx.backends.android.AndroidFragmentApplication;
+import com.milkyway.flappybird.FBGame;
 
 public class GameFragment extends AndroidFragmentApplication {
 

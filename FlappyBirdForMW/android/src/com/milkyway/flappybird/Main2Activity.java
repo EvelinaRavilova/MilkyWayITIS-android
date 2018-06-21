@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.milkyway.flappybird.games.MainActivity;
 import com.milkyway.flappybird.net.API;
 import com.milkyway.flappybird.net.models.Record;
 

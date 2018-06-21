@@ -1,10 +1,12 @@
-package com.milkyway.flappybird;
+package com.milkyway.flappybird.pages;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import com.milkyway.flappybird.R;
 
 public class FirstActivity extends AppCompatActivity {
     Button signIn, signUp;

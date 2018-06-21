@@ -16,5 +16,12 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."</string>
     <string name="title_activity_playground">Playground</string>
+    <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_1">FLAPPY BIRD</string>
+    <string name="tab_text_2">ARITHMETIC</string>
+    <string name="tab_text_3">M-PUZZLE</string>
+    <string name="title_activity_personal_statistics">PersonalStatisticsActivity</string>
 
 </resources>
