@@ -21,7 +21,6 @@ public class API {
         (hardcode)
      */
 
-
     Retrofit retrofit;
     ServerApiInterface service;
 
@@ -33,6 +32,9 @@ public class API {
         service = retrofit.create(ServerApiInterface.class);
     }
 
+    /*
+        Список личных игровых записей по определённой игре
+     */
     public List<Record> getRecords(int gameType, int amount) {
         final List<Record> records = new ArrayList<>();
         try {
@@ -40,22 +42,22 @@ public class API {
                     .getRecords(gameType, amount, "username")
                     .execute();
             records.addAll(response.body());
-            Log.d("Response", records.toString());
+            Log.d("getRecords", records.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // while (!(records.size() > 0)) {}
         return records;
     }
 
+
     public void newRecord(int gameType, int score) {
-        final Record record = new Record("2018-05-26T21:21:00Z",gameType,
+        final Record record = new Record("2018-05-26T21:21:00Z", gameType,
                 score, "username");
-        String conType = "application/json";
-        service.newRecord(conType, record).enqueue(new Callback<Record>() {
+        final String contentType = "application/json";
+        service.newRecord(contentType, record).enqueue(new Callback<Record>() {
             @Override
             public void onResponse(Call<Record> call, Response<Record> response) {
-                Log.d("sm", "Message sent");
+                Log.d("newRecord", "Message sent");
             }
 
             @Override
@@ -65,21 +67,30 @@ public class API {
         });
     }
 
+    /**
+     * Лучшая игровая запись по указанной игре за указанный период
+     */
     public Record getTop(int gameType, String filterBy) {
         Record record = new Record();
         try {
             Response<Record> response = service
-                    .getTopRecord(gameType,"username", filterBy)
+                    .getTopRecord(gameType, "username", filterBy)
                     .execute();
             //while (response.body() == null) {}
             record = new Record(response.body());
-            Log.d("Response", record.toString());
+            Log.d("getTop", record.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
         return record;
     }
 
+    /**
+     * Место в мировой статистике по указанной игре
+     *
+     * @param gameType
+     * @return Position
+     */
     public Position getTotalPosition(int gameType) {
         Position position = new Position();
         try {
@@ -88,7 +99,7 @@ public class API {
                     .execute();
             //while (response.body() == null) {}
             position = response.body();
-            Log.d("Response", position.toString());
+            Log.d("getTotalPosition", position.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }

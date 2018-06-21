@@ -14,7 +14,7 @@ public class ArithmeticTab extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_flappy, container, false);
-        TextView textView = (TextView) rootView.findViewById(R.id.section_label);
+        TextView textView = rootView.findViewById(R.id.section_label);
         textView.setText("I'm Arithmetic");
         return rootView;
     }

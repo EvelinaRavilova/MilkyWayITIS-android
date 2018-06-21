@@ -14,9 +14,9 @@ public class ArithmeticMenuActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_arithmetic_menu);
-        Button game = (Button)findViewById(R.id.game);
-        Button score = (Button)findViewById(R.id.score);
-        Button menu = (Button)findViewById(R.id.menu);
+        Button game = findViewById(R.id.game);
+        Button score = findViewById(R.id.score);
+        Button menu = findViewById(R.id.menu);
 
         game.setOnClickListener(new View.OnClickListener() {
             @Override
