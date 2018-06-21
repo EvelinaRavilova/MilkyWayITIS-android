@@ -43,7 +43,7 @@ public class Main2Activity extends AppCompatActivity {
         @Override
         protected List<Record> doInBackground(Void... voids) {
             Log.d("Deb", "HERE");
-            List<Record> recordList = api.getRecords();
+            List<Record> recordList = api.getRecords(1, 3);
             Log.d("Deb", "HERE");
             publishProgress(voids);
             return recordList;
