@@ -27,6 +27,13 @@ public class MemoryPuzzleMenuActivity extends AppCompatActivity {
         menu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent i = new Intent(MemoryPuzzleMenuActivity.this, PuzzleScoreActivity.class);
+                startActivity(i);
+            }
+        });
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 Intent i = new Intent(MemoryPuzzleMenuActivity.this, MainMenu.class);
                 startActivity(i);
             }

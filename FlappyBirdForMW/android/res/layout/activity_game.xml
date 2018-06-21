@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".games.GameActivity"
+    android:background="#FFF">
+
+    <Button
+        android:id="@+id/button_game_menu"
+        android:onClick="onGameMenuButtonClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_game_start"
+        android:onClick="onGameStartButtonClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/button_start"
+        app:layout_constraintStart_toEndOf="@+id/button_game_menu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_timer"
+        android:layout_width="32dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="176dp"
+        android:layout_marginStart="176dp"
+        android:layout_marginTop="36dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_game_start" />
+
+    <EditText
+        android:id="@+id/input_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="60dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="@string/default_answer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_question" />
+
+    <TextView
+        android:id="@+id/text_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="160dp"
+        android:layout_marginStart="160dp"
+        android:layout_marginTop="116dp"
+        android:text="@string/default_question"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_timer" />
+
+    <TextView
+        android:id="@+id/invariable_text_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="112dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/invariable_text_score"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_answer" />
+
+    <TextView
+        android:id="@+id/variable_text_score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="64dp"
+        android:text="@string/space"
+        app:layout_constraintStart_toEndOf="@+id/invariable_text_score"
+        app:layout_constraintTop_toBottomOf="@+id/input_answer" />
+
+    <Button
+        android:id="@+id/button_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="@string/button_submit"
+        app:layout_constraintStart_toEndOf="@+id/input_answer"
+        app:layout_constraintTop_toBottomOf="@+id/text_question" />
+
+</android.support.constraint.ConstraintLayout>

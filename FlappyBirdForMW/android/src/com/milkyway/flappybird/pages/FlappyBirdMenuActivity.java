@@ -33,6 +33,13 @@ public class FlappyBirdMenuActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(FlappyBirdMenuActivity.this, FlappyBirdScoreActivity.class);
+                startActivity(i);
+            }
+        });
 
     }
 }

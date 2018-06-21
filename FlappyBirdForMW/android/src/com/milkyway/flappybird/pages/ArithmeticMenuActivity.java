@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.milkyway.flappybird.R;
+import com.milkyway.flappybird.games.GameActivity;
+import com.milkyway.flappybird.games.MainActivityArithm;
 
 public class ArithmeticMenuActivity extends AppCompatActivity {
 
@@ -21,7 +23,15 @@ public class ArithmeticMenuActivity extends AppCompatActivity {
         game.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent i = new Intent(ArithmeticMenuActivity.this, GameActivity.class);
+                startActivity(i);
+            }
+        });
+        score.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ArithmeticMenuActivity.this, ArithmeticScoreActivity.class);
+                startActivity(i);
             }
         });
         menu.setOnClickListener(new View.OnClickListener() {

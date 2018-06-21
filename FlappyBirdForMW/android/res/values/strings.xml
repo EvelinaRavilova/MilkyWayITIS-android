@@ -23,5 +23,14 @@
     <string name="tab_text_2">ARITHMETIC</string>
     <string name="tab_text_3">M-PUZZLE</string>
     <string name="title_activity_personal_statistics">PersonalStatisticsActivity</string>
+    <string name="button_startgame">Start Game</string>
+    <string name="button_scores">Scores</string>
+    <string name="button_menu">Menu</string>
+    <string name="button_start">Start</string>
+    <string name="button_submit">Submit</string>
+    <string name="invariable_text_score">Your Score:</string>
+    <string name="default_question">A + B = ?</string>
+    <string name="default_answer">Your answer</string>
+    <string name="space"> </string>
 
 </resources>

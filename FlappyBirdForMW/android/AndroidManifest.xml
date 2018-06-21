@@ -29,6 +29,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -41,7 +42,6 @@
             android:name=".pages.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity android:name=".Main2Activity" />
-
         <activity android:name=".pages.MainMenu" />
         <activity
             android:name=".pages.PersonalStatisticsActivity"
@@ -55,9 +55,16 @@
             android:name=".pages.ArithmeticMenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".pages.MemoryPuzzleMenuActivity"
+        <activity
+            android:name=".pages.MemoryPuzzleMenuActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".games.MainActivityArithm" />
+        <activity android:name=".games.GameActivity" />
+        <activity android:name=".games.ScoresActivity" />
+        <activity android:name=".pages.FlappyBirdScoreActivity" />
+        <activity android:name=".pages.ArithmeticScoreActivity" />
+        <activity android:name=".pages.PuzzleScoreActivity"></activity>
     </application>
 
 </manifest>
