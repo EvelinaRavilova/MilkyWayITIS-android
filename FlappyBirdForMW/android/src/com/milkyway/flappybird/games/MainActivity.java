@@ -1,10 +1,11 @@
-package com.milkyway.flappybird;
+package com.milkyway.flappybird.games;
 
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.badlogic.gdx.backends.android.AndroidFragmentApplication;
+import com.milkyway.flappybird.R;
 
 public class MainActivity extends AppCompatActivity  implements AndroidFragmentApplication.Callbacks {
 

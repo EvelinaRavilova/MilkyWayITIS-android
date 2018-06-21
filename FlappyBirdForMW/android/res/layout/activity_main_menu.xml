@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainMenu"
+    tools:context=".pages.MainMenu"
     android:background="@drawable/back5_menu">
 
     <Button
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/arithmetic"
         android:layout_width="100sp"
         android:layout_height="100sp"
         android:layout_marginBottom="8dp"
@@ -41,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/puzzle"
         android:layout_width="100sp"
         android:layout_height="100sp"
         android:layout_marginBottom="8dp"

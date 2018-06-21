@@ -14,3 +14,4 @@ public class AndroidLauncher extends AndroidApplication {
 		initialize(new FBGame(), config);
 	}
 }
+// НА ВСЯКИЙ СЛУЧАЙ НЕ ТРОГАТЬ!!!
