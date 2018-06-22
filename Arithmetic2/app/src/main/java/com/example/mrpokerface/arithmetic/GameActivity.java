@@ -1,92 +1,124 @@
 package com.example.mrpokerface.arithmetic;
 
-import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
-    Integer submittedAnswer;
+
+    Button button_start;
     Button button_submit;
-    EditText input_answer = (EditText)findViewById(R.id.input_answer);
-    TextView output_score = (TextView)findViewById(R.id.variable_text_score);
+    TextView timer;
+    TextView scores;
+    TextView question;
+    TextView input_answer;
+    Integer submittedAnswer;
+    Integer rightAnswers;
+    Integer wrongAnswers;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        ((TextView)findViewById(R.id.text_timer)).setText("60");
-        input_answer.setTextColor(Color.GRAY);
         button_submit = findViewById(R.id.button_submit);
+        button_submit.setEnabled(false);
+        button_start = findViewById(R.id.button_game_start);
+        timer = findViewById(R.id.text_timer);
+        scores = findViewById(R.id.variable_text_score);
+        question = findViewById(R.id.text_question);
+        input_answer = findViewById(R.id.input_answer);
         button_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submittedAnswer = Integer.parseInt(input_answer.getText().toString());
+                if (!input_answer.getText().toString().equals("")) {
+                    submittedAnswer = Integer.parseInt(input_answer.getText().toString());
+                    if (submittedAnswer == RandomQuestion.getAnswer()) {
+                        updateScore(true);
+                    } else {
+                        updateScore(false);
+                    }
+                    input_answer.setText("");
+                    if (!timer.getText().equals("0")) {
+                        askQuestion();
+                    }
+                }
             }
         });
     }
 
     public void onGameMenuButtonClick(View view) {
-        onStop(); //не уверен, что это работает так
-        //хочу, чтобы в прошлое меню возвращалось
+        finish();
     }
 
     public void onGameStartButtonClick(View view) {
-        findViewById(R.id.button_game_start).setEnabled(false);
+        button_start.setEnabled(false);
+        button_submit.setEnabled(true);
+        String s = "0/0";
+        scores.setText(s);
         gameProcess();
+
     }
 
-    private void gameProcess() {
-        int rightAnswers = 0;
-        int wrongAnswers = 0;
-        input_answer.setText("");
-        input_answer.setTextColor(Color.BLACK);
-        int i = 60;
-        while(i > 0) {
-            int answer = 0;
-            String q = "";
-            Integer a = RandomQuestion.getA();
-            Integer b = RandomQuestion.getB();
-            switch (RandomQuestion.getSign()) {
-                case 0:
-                    q = a.toString() + " + " + b.toString() + " = ";
-                    answer = a + b;
-                    break;
+    public void gameProcess() {
+        new CountDownTimer(60000, 1000) {
 
-                case 1:
-                    q = a.toString() + " - " + b.toString() + " = ";
-                    answer = a - b;
-                    break;
-
-                case 2:
-                    q = a.toString() + " * " + b.toString() + " = ";
-                    answer = a * b;
-                    break;
-
-                case 3:
-                    q = a.toString() + " / " + b.toString() + " = ";
-                    answer = a / b;
-                    break;
+            public void onTick(long millisUntilFinished) {
+                Long l = millisUntilFinished / 1000;
+                timer.setText(l.toString());
             }
-            ((TextView) findViewById(R.id.text_question)).setText(q);
-            if(button_submit.isPressed()) {
-                if(answer == submittedAnswer) {
-                    rightAnswers++;
-                    String scores = rightAnswers + "/" + wrongAnswers;
-                    output_score.setText(scores);
-                }
-                else {
-                    wrongAnswers++;
-                    String scores = rightAnswers + "/" + wrongAnswers;
-                    output_score.setText(scores);
-                }
+
+            public void onFinish() {
+                timer.setText("0");
+                button_submit.setEnabled(false);
+                button_start.setEnabled(true);
             }
-            input_answer.setText("");
-            i--;
         }
+                .start();
+        rightAnswers = 0;
+        wrongAnswers = 0;
+        askQuestion();
     }
+
+    public void askQuestion() {
+        RandomQuestion.generateQuestion();
+        Integer a = RandomQuestion.getA();
+        Integer b = RandomQuestion.getB();
+        String q = "";
+        switch (RandomQuestion.getSign()) {
+            case 0:
+                q = a.toString() + " + " + b.toString() + " = ";
+                break;
+
+            case 1:
+                q = a.toString() + " - " + b.toString() + " = ";
+                break;
+
+            case 2:
+                q = a.toString() + " * " + b.toString() + " = ";
+                break;
+
+            case 3:
+                q = a.toString() + " / " + b.toString() + " = ";
+                break;
+        }
+        question.setText(q);
+    }
+
+    public void updateScore(boolean correct) {
+        if (correct) {
+            rightAnswers++;
+            String s = "" + rightAnswers + "/" + wrongAnswers;
+            scores.setText(s);
+        } else {
+            wrongAnswers++;
+            String s = "" + rightAnswers + "/" + wrongAnswers;
+            scores.setText(s);
+        }
+
+    }
+
 }

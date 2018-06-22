@@ -4,6 +4,7 @@ public class RandomQuestion {
 
     private static int a;
     private static int b;
+    private static int answer;
     private static int sign;
 
     public static int getA() {
@@ -18,6 +19,10 @@ public class RandomQuestion {
         return sign;
     }
 
+    public static int getAnswer() {
+        return answer;
+    }
+
     public static void generateQuestion() {
         a = (int)(1 + Math.random() * 99);
         sign = (int)(Math.random() * 4);
@@ -25,14 +30,17 @@ public class RandomQuestion {
 
             case 0: //+
                 b = (int)(1 + Math.random() * 99);
+                answer = a + b;
                 break;
 
             case 1: //-
                 b = (int)(1 + Math.random() * a);
+                answer = a - b;
                 break;
 
             case 2: //*
                 b = (int)(1 + Math.random() * 20);
+                answer = a * b;
                 break;
 
             case 3: //:
@@ -40,6 +48,7 @@ public class RandomQuestion {
                 while(a % b != 0) {
                     b = (int)(1 + Math.random() * a);
                 }
+                answer = a / b;
                 break;
         }
     }
