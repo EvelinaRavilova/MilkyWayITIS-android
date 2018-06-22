@@ -13,9 +13,17 @@ public class MemoryPuzzleTab extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_flappy, container, false);
+        View rootView = inflater.inflate(R.layout.fragment, container, false);
         TextView textView = (TextView) rootView.findViewById(R.id.section_label);
-        textView.setText("I'm Puzzle");
+
+        TextView bestForToday = (TextView) rootView.findViewById(R.id.bestfortoday);
+        TextView bestForMonth = (TextView) rootView.findViewById(R.id.bestformonth);
+        TextView personalBest = (TextView) rootView.findViewById(R.id.personalbest);
+        TextView worldRate = (TextView) rootView.findViewById(R.id.worldrate);
+
+        //При установки очков подразумевается такая команда: bestForToday.setText("Best for month:  " + score);
+
+        textView.setText("Memory puzzle");
         return rootView;
     }
 }
