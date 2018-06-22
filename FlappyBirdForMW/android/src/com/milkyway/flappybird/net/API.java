@@ -38,8 +38,9 @@ public class API {
     public List<Record> getRecords(int gameType, int amount) {
         final List<Record> records = new ArrayList<>();
         try {
+            String username = "username";
             Response<List<Record>> response = service
-                    .getRecords(gameType, amount, "username")
+                    .getRecords(gameType, amount, username)
                     .execute();
             records.addAll(response.body());
             Log.d("getRecords", records.toString());

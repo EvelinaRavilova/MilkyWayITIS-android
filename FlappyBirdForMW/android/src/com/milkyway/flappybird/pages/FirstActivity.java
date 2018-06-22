@@ -25,6 +25,19 @@ public class FirstActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        new ApiUp().execute();
+
     }
 
+    class ApiUp extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected Void doInBackground(Void... voids) {
+            API api = new API();
+            api.getRecords(1, 4);
+            api.getTop(1, "none");
+            api.getTotalPosition(1);
+            api.newRecord(1, 69);
+            return null;
+        }
+    }
 }
