@@ -54,7 +54,8 @@
         <activity android:name=".games.MainActivityArithm" />
         <activity android:name=".games.GameActivity" />
         <activity android:name=".games.ScoresActivity" />
-        <activity android:name=".pages.GameScoreActivity" />
+        <activity android:name=".pages.GameScoreActivity"   android:label="@string/title_activity_personal_statistics"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

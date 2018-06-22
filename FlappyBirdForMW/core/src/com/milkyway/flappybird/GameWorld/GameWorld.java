@@ -83,7 +83,7 @@ public class GameWorld {
 			scroller.stop();
 			bird.decelerate();
 			currentState = GameState.GAMEOVER;
-
+			AssetLoader.setScore(score);
 			if (score > AssetLoader.getHighScore()) {
 				AssetLoader.setHighScore(score);
 				currentState = GameState.HIGHSCORE;

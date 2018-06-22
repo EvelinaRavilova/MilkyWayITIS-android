@@ -36,10 +36,10 @@ public class MemoryPuzzleTab extends Fragment {
          personalBest = rootView.findViewById(R.id.personalbest);
          worldRate = rootView.findViewById(R.id.worldrate);
 
-        personalBest.setText("Лучший результат за все время: Loading...");
-        bestForMonth.setText("Лучший результат за месяц: Loading...");
-        bestForToday.setText("Лучший результат за сегодня: Loading...");
-        worldRate.setText("Место в мире: Loading...");
+        personalBest.setText("Personal best: Loading...");
+        bestForMonth.setText("Best for month: Loading...");
+        bestForToday.setText("Best for today: Loading...");
+        worldRate.setText("World rate: Loading...");
 
         new LoadRecords().execute();
         textView.setText("Memory puzzle");
@@ -62,10 +62,10 @@ public class MemoryPuzzleTab extends Fragment {
         protected void onProgressUpdate(HashMap<String, Record>... values) {
             super.onProgressUpdate(values);
             HashMap<String, Record> records = values[0];
-            bestForToday.setText("Лучший результат за день: None");
-            bestForMonth.setText("Лучший результат за месяц: None");
-            personalBest.setText("Лучший результат за все время: " + records.get("none").score);
-            worldRate.setText("Место в мире: " + records.get("world").score);
+            bestForToday.setText("Best for today: None");
+            bestForMonth.setText("Best for month: None");
+            personalBest.setText("Personal best: " + records.get("none").score);
+            worldRate.setText("World rate: " + records.get("world").score);
         }
     }
 }

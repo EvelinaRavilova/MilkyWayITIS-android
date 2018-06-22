@@ -9,6 +9,9 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class AssetLoader{
 
 	public static Texture texture, logoTexture, textureBird, textureGrass,
@@ -124,15 +127,90 @@ public class AssetLoader{
 		if (!prefs.contains("highScore")) {
 			prefs.putInteger("highScore", 0);
 		}
+		if (!prefs.contains("1Score")) {
+			prefs.putInteger("1Score", 0);
+		}
+		if (!prefs.contains("2Score")) {
+			prefs.putInteger("2Score", 0);
+		}
+		if (!prefs.contains("3Score")) {
+			prefs.putInteger("3Score", 0);
+		}
+		if (!prefs.contains("4Score")) {
+			prefs.putInteger("4Score", 0);
+		}
+		if (!prefs.contains("5Score")) {
+			prefs.putInteger("5Score", 0);
+		}
+		if (!prefs.contains("6Score")) {
+			prefs.putInteger("6Score", 0);
+		}
+		if (!prefs.contains("7Score")) {
+			prefs.putInteger("7Score", 0);
+		}
+		if (!prefs.contains("8Score")) {
+			prefs.putInteger("8Score", 0);
+		}
+		if (!prefs.contains("9Score")) {
+			prefs.putInteger("9Score", 0);
+		}
 	}
 
 	public static void setHighScore(int val) {
 		prefs.putInteger("highScore", val);
 		prefs.flush();
 	}
+	public static void setScore(int val){
+		for (int i = 1; i < 10; i++) {
+			prefs.putInteger(i + "Score", prefs.getInteger((i + 1) + "Score"));
+		}
+		prefs.putInteger("9Score", val);
+		prefs.flush();
+	}
 
 	public static int getHighScore() {
 		return prefs.getInteger("highScore");
+	}
+    public static ArrayList getScores() {
+		if (prefs == null){
+			makePrefs();
+		}
+		ArrayList<Integer> scores = new ArrayList();
+		for (int i = 1; i < 10; i++) {
+			scores.add(prefs.getInteger(i + "Score"));
+		}
+		return scores;
+
+    }
+    public static void makePrefs(){
+		prefs = Gdx.app.getPreferences("ZombieBird");
+		if (!prefs.contains("1Score")) {
+			prefs.putInteger("1Score", 0);
+		}
+		if (!prefs.contains("2Score")) {
+			prefs.putInteger("2Score", 0);
+		}
+		if (!prefs.contains("3Score")) {
+			prefs.putInteger("3Score", 0);
+		}
+		if (!prefs.contains("4Score")) {
+			prefs.putInteger("4Score", 0);
+		}
+		if (!prefs.contains("5Score")) {
+			prefs.putInteger("5Score", 0);
+		}
+		if (!prefs.contains("6Score")) {
+			prefs.putInteger("6Score", 0);
+		}
+		if (!prefs.contains("7Score")) {
+			prefs.putInteger("7Score", 0);
+		}
+		if (!prefs.contains("8Score")) {
+			prefs.putInteger("8Score", 0);
+		}
+		if (!prefs.contains("9Score")) {
+			prefs.putInteger("9Score", 0);
+		}
 	}
 
 	public static void dispose() {
