@@ -52,7 +52,7 @@ public class GameScoreActivity extends AppCompatActivity {
             GraphView graph = findViewById(R.id.graph);
             DataPoint[] data = new DataPoint[records.length];
             for (int i = 0; i < records.length; i++) {
-                data[i] = new DataPoint(i+1, records[i].score);
+                data[i] = new DataPoint(i, records[i].score);
             }
             LineGraphSeries<DataPoint> series = new LineGraphSeries<>(data);
             graph.addSeries(series);
