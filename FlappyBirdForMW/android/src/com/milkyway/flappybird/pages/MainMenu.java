@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.milkyway.flappybird.GameType;
 import com.milkyway.flappybird.R;
 
 public class MainMenu extends AppCompatActivity {
@@ -26,27 +27,36 @@ public class MainMenu extends AppCompatActivity {
         statistics = findViewById(R.id.statistics);
         TextView textView = findViewById(R.id.username_main_screen);
         textView.setText(username);
+
+        //
+        // Games
+        //
         flappyBird.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainMenu.this, FlappyBirdMenuActivity.class);
+                Intent i = new Intent(MainMenu.this, GameMenuActivity.class);
+                i.putExtra("gameType", GameType.FLAPPY);
                 startActivity(i);
             }
         });
         arithmetic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainMenu.this, ArithmeticMenuActivity.class);
+                Intent i = new Intent(MainMenu.this, GameMenuActivity.class);
+                i.putExtra("gameType", GameType.ARITHMETIC);
                 startActivity(i);
             }
         });
         puzzle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainMenu.this, MemoryPuzzleMenuActivity.class);
+                Intent i = new Intent(MainMenu.this, GameMenuActivity.class);
+                i.putExtra("gameType", GameType.PUZZLE);
                 startActivity(i);
             }
         });
+
+
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

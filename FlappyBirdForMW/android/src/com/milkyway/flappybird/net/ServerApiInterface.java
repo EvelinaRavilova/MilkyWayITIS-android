@@ -14,6 +14,8 @@ import retrofit2.http.Query;
 
 public interface ServerApiInterface {
 
+
+    // Лучшая игровая запись по указанной игре за указанный период
     @GET("top/")
     Call<Record> getTopRecord(
             @Query("game_type") Integer gameType,
@@ -21,6 +23,8 @@ public interface ServerApiInterface {
             @Query("filter_by") String filterBy
     );
 
+
+    // Список личных игровых записей по определённой игре
     @GET("records/")
     Call<List<Record>> getRecords(
             @Query("game_type") Integer gameType,
@@ -28,12 +32,14 @@ public interface ServerApiInterface {
             @Query("username") String username
     );
 
+    // Место в мировой статистике по указанной игре
     @GET("total_position/")
     Call<Position> getTotalPosition(
             @Query("username") String username,
             @Query("game_type") Integer gameType
     );
 
+    // Новый рекорд
     @POST("new_record/")
     Call<Record> newRecord(
             @Header("Content-Type") String contentType,
