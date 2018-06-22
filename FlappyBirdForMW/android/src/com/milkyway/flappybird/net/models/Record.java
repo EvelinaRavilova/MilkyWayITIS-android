@@ -34,6 +34,13 @@ public class Record {
         this.score = record.score;
         this.username = record.username;
     }
+    public Record(Position p) {
+        date = "";
+        username = "";
+        score = p.position;
+        game_type = 9;
+    }
+
     public Record() {
 
     }
